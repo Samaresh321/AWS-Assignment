@@ -122,7 +122,7 @@ Step 4: Test the Scheduled Execution
 ### 5. Schedule AWS Glue Job to move data from s3 to Redshift.
 
 Step 1: Create an AWS Glue Job
-Ensure that you have an AWS Glue Job created for moving data from S3 to Redshift. If you haven't created one yet, follow the steps mentioned earlier in this conversation to create an AWS Glue Job.
+Ensure that you have an AWS Glue Job created for moving data from S3 to Redshift. 
 
 Step 2: Create an IAM Role for AWS Glue
 Ensure that you have an IAM role with the necessary permissions for AWS Glue to access your S3 data and interact with your Redshift cluster. Attach the AWSGlueServiceRole and AmazonRedshiftFullAccess policies to this role.
