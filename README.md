@@ -91,19 +91,65 @@ Run the Job : Click on "Run job" to execute the Glue Job.
 
 4. Schedule AWS Lambda function to download data automatically on specific interval.
 
+Step 1: Create or Identify Your Lambda Function
+Step 2: Create an IAM Role for CloudWatch Events
+Step 3: Create a CloudWatch Events Rule
+Go to the AWS CloudWatch Console: https://console.aws.amazon.com/cloudwatch/.
 
+In the left navigation pane, choose "Rules" under "Events."
 
+Click on "Create Rule."
 
+Event Source:
 
+Choose "Event Source" as "Schedule."
+Specify the fixed rate or cron expression for the schedule. For example, to run every 6 hours, you can use a cron expression like 0 */6 * * ? *.
+Targets:
 
+Choose "Add Target."
+Select "Lambda function" as the target type.
+Choose your Lambda function from the list.
+Configure Details:
 
+Provide a name and description for your rule.
+Choose the IAM role you created earlier.
+Create Rule:
 
+Click on "Create Rule" to save your rule.
 
+Step 4: Test the Scheduled Execution
 
+### 5. Schedule AWS Glue Job to move data from s3 to Redshift.
 
+Step 1: Create an AWS Glue Job
+Ensure that you have an AWS Glue Job created for moving data from S3 to Redshift. If you haven't created one yet, follow the steps mentioned earlier in this conversation to create an AWS Glue Job.
 
+Step 2: Create an IAM Role for AWS Glue
+Ensure that you have an IAM role with the necessary permissions for AWS Glue to access your S3 data and interact with your Redshift cluster. Attach the AWSGlueServiceRole and AmazonRedshiftFullAccess policies to this role.
 
+Step 3: Create an AWS Glue Trigger
+Go to the AWS Glue Console: https://console.aws.amazon.com/glue/.
 
+In the left navigation pane, choose "Triggers."
+
+Click on the "Add trigger" button.
+
+Trigger Settings:
+
+Provide a name for your trigger.
+Choose the type of trigger. For periodic jobs, select "Scheduled."
+Specify the schedule using a cron expression or choose a predefined schedule.
+Actions:
+
+Choose the action as "Start a job."
+Select the AWS Glue Job you created in Step 1.
+Choose the IAM role you created in Step 2.
+Create Trigger:
+
+Click on "Create trigger" to save your trigger.
+
+Step 4: Monitor and Test
+After creating the trigger, AWS Glue will automatically run the specified job based on the defined schedule. You can monitor the execution of the job in the AWS Glue Console and check the CloudWatch Logs for any errors or additional information.
 
 
 
